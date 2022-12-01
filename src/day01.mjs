@@ -43,9 +43,7 @@
  *
  * Find the Elf carrying the most Calories. How many total Calories is that Elf
  * carrying?
- * 
- * ----
- * 
+ *
  * By the time you calculate the answer to the Elves' question, they've already
  * realized that the Elf carrying the most Calories of food might eventually run
  * out of snacks.
@@ -64,20 +62,18 @@
  * those Elves carrying in total?
  *
  * @param {string} input
- * @param {number=} count
+ * @param {number} [count]
  */
-export function day01(input, count = 1) {
-  const groups = input.split(/\n\n/g).map((group) =>
-    group
-      .split(/\n/g)
-      .map(Number)
-      .reduce((a, b) => a + b, 0)
-  );
-  if (count === 1) {
-    return Math.max(...groups);
-  } else {
-    return groups.sort((a, b) => b - a)
-      .slice(0, count)
-      .reduce((a, b) => a + b, 0);
-  }
+export function day01(input, count = 3) {
+  return input
+    .split('\n\n')
+    .map((group) =>
+      group
+        .split('\n')
+        .map(Number)
+        .reduce((a, b) => a + b, 0)
+    )
+    .sort((a, b) => b - a)
+    .slice(0, count)
+    .reduce((a, b) => a + b, 0);
 }
