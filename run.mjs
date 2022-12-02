@@ -1,17 +1,6 @@
-import { day01 } from "./src/day01.mjs";
+import { day02 } from "./src/day02.mjs";
 
-const input = `1000
-2000
-3000
-
-4000
-
-5000
-6000
-
-7000
-8000
-9000
-
-10000`
-console.log(day01(input, 3));
+const input = `A Y
+B X
+C Z`
+console.log(day02(input));
