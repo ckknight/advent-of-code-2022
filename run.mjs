@@ -1,6 +1,9 @@
-import { day02 } from "./src/day02.mjs";
+import { day03 } from "./src/day03.mjs";
 
-const input = `A Y
-B X
-C Z`
-console.log(day02(input));
+const input = `vJrwpWtwJgWrhcsFMMfFFhFp
+jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
+PmmdzqPrVvPwwTWBwg
+wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn
+ttgJtRGJQctTZtZT
+CrZsJsPPZsGzwwsLwLmpwMDw`
+console.log(day03(input));
