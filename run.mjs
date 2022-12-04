@@ -1,9 +1,9 @@
-import { day03 } from "./src/day03.mjs";
+import { day04 } from "./src/day04.mjs";
 
-const input = `vJrwpWtwJgWrhcsFMMfFFhFp
-jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
-PmmdzqPrVvPwwTWBwg
-wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn
-ttgJtRGJQctTZtZT
-CrZsJsPPZsGzwwsLwLmpwMDw`
-console.log(day03(input));
+const input = `2-4,6-8
+2-3,4-5
+5-7,7-9
+2-8,3-7
+6-6,4-6
+2-6,4-8`
+console.log(day04(input));
