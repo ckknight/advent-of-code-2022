@@ -65,7 +65,7 @@
  * In this example, there are `2` such pairs.
  *
  * In how many assignment pairs does one range fully contain the other?
- * 
+ *
  * ## --- Part Two ---
  *
  * It seems like there is still quite a bit of duplicate work planned. Instead,
@@ -87,43 +87,41 @@
 
 /**
  * @example
- *   day04(`2-4,6-8
+ *   day04(
+ *     `2-4,6-8
  *   2-3,4-5
  *   5-7,7-9
  *   2-8,3-7
  *   6-6,4-6
- *   2-6,4-8`, 'contain') === 2;
- *   day04(`2-4,6-8
+ *   2-6,4-8`,
+ *     "contain"
+ *   ) === 2;
+ *   day04(
+ *     `2-4,6-8
  *   2-3,4-5
  *   5-7,7-9
  *   2-8,3-7
  *   6-6,4-6
- *   2-6,4-8`, 'overlap') === 4;
+ *   2-6,4-8`,
+ *     "overlap"
+ *   ) === 4;
  *
  * @param {string} input
- * @param {'contain' | 'overlap'} [strategy]
+ * @param {"contain" | "overlap"} [strategy]
  */
-export function day04(input, strategy = 'overlap') {
-  return input.split("\n").reduce((acc, line) => {
-    const match = /^(\d+)-(\d+),(\d+)-(\d+)$/.exec(line);
-    if (match == null) {
-      throw new Error(`Unparsable line: ${line}`);
-    }
-    const [, a1, a2, b1, b2] = match.map(Number);
-    if (strategy === 'contain') {
-      if ((a1 >= b1 && a2 <= b2) || (b1 >= a1 && b2 <= a2)) {
-        return acc + 1;
-      } else {
-        return acc;
+export function day04(input, strategy = "overlap") {
+  return input
+    .split("\n")
+    .map((line) => {
+      const match = /^(\d+)-(\d+),(\d+)-(\d+)$/.exec(line);
+      if (match == null) {
+        throw new Error(`Unparsable line: ${line}`);
       }
-    } else if (strategy === 'overlap') {
-      if (a2 >= b1 && b2 >= a1) {
-        return acc + 1;
-      } else {
-        return acc;
-      }
-    } else {
-      throw new Error(`Unknown strategy ${strategy}`);
-    }
-  }, 0);
+      return match.map(Number).slice(1);
+    })
+    .filter(
+      strategy === "contain"
+        ? ([a1, a2, b1, b2]) => (a1 >= b1 && a2 <= b2) || (b1 >= a1 && b2 <= a2)
+        : ([a1, a2, b1, b2]) => a2 >= b1 && b2 >= a1
+    ).length;
 }
