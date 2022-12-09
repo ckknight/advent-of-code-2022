@@ -1,8 +1,11 @@
-import { day08 } from "./src/day08.mjs";
+import { day09 } from "./src/day09.mjs";
 
-const input = `30373
-25512
-65332
-33549
-35390`
-console.log(day08(input));
+const input = `R 4
+U 4
+L 3
+D 1
+R 4
+D 1
+L 5
+R 2`
+console.log(day09(input));
